@@ -15,6 +15,10 @@
  */
 package com.github.cpthack.temporary.file;
 
+import java.io.FileReader;
+import java.io.LineNumberReader;
+import java.util.stream.Stream;
+
 /**
  * <b>LineNumberReaderExample.java</b></br>
  * 
@@ -28,9 +32,85 @@ package com.github.cpthack.temporary.file;
  */
 public class LineNumberReaderExample {
 	
+	// 统计文件的行数
+	public long countFromFile(String filePath) {
+		try (
+		        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath))) {
+			// lineNumberReader.skip(Long.MAX_VALUE);// 跳过的字符数
+			// long lineCount = lineNumberReader.getLineNumber();
+			return lineNumberReader.lines().count();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0L;
+	}
+	
+	// 逐行读取文本
+	public void readFromFile(String filePath, FileCallBack fileCallBack) {
+		try (
+		        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath))) {
+			// lineNumberReader.setLineNumber(2);// 指定开始读取的行数，当指定行数超过总行数时，会接着从头开始计算
+			String line = null;
+			while ((line = lineNumberReader.readLine()) != null) {
+				fileCallBack.success("line " + lineNumberReader.getLineNumber() + ": " + line);
+				if (lineNumberReader.getLineNumber() == 10) {
+					break;
+				}
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// 指定特定行读取文本
+	public void readFromFileOfLine(String filePath, int start, FileCallBack fileCallBack) {
+		try (
+		        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath))) {
+			Stream<String> stringStream = lineNumberReader.lines();
+//			boolean isMatch = stringStream.anyMatch(new Predicate<String>() {
+//				
+//				@Override
+//				public boolean test(String t) {
+//					return t.contains("111") || t.contains("22222");
+//				}
+//				
+//			});
+//			System.out.println(isMatch);
+			
+			System.out.println(stringStream.skip(5399580).findFirst().get());
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		LineNumberReaderExample lineNumberReader = new LineNumberReaderExample();
+		String filePath = "C:/Users/Administrator/Desktop/info09_1.txt";
 		
+		/**
+		 * 测试获取文件总行数
+		 */
+		long lineCount = lineNumberReader.countFromFile(filePath);
+		System.out.println("总行数:" + lineCount);
+		
+		/**
+		 * 测试逐行读取文本
+		 */
+//		System.out.println("文本中的内容:");
+//		lineNumberReader.readFromFile(filePath, new FileCallBack() {
+//			@Override
+//			public void success(String str) {
+//				System.out.println(str);
+//			}
+//		});
+		
+		/**
+		 * 测试
+		 */
+		lineNumberReader.readFromFileOfLine(filePath, 2, null);
 	}
 	
 }
