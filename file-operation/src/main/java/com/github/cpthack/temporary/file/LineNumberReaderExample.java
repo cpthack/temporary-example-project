@@ -19,6 +19,8 @@ import java.io.FileReader;
 import java.io.LineNumberReader;
 import java.util.stream.Stream;
 
+import com.github.cpthack.temporary.file.RunningTimeCountHelper.Program;
+
 /**
  * <b>LineNumberReaderExample.java</b></br>
  * 
@@ -36,11 +38,11 @@ public class LineNumberReaderExample {
 	public long countFromFile(String filePath) {
 		try (
 		        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath))) {
-			 lineNumberReader.skip(Long.MAX_VALUE);// 跳过的字符数
-			 long lineCount = lineNumberReader.getLineNumber();
+			lineNumberReader.skip(Long.MAX_VALUE);// 跳过的字符数
+			long lineCount = lineNumberReader.getLineNumber();
 			return lineCount;
 			
-			//return lineNumberReader.lines().count();
+			// return lineNumberReader.lines().count();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -71,18 +73,18 @@ public class LineNumberReaderExample {
 		try (
 		        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath))) {
 			Stream<String> stringStream = lineNumberReader.lines();
-//			boolean isMatch = stringStream.anyMatch(new Predicate<String>() {
-//				
-//				@Override
-//				public boolean test(String t) {
-//					return t.contains("111") || t.contains("22222");
-//				}
-//				
-//			});
-//			System.out.println(isMatch);
+			// boolean isMatch = stringStream.anyMatch(new Predicate<String>() {
+			//
+			// @Override
+			// public boolean test(String t) {
+			// return t.contains("111") || t.contains("22222");
+			// }
+			//
+			// });
+			// System.out.println(isMatch);
 			
-//			System.out.println(stringStream.skip(start).findFirst().get());
-			System.out.println(stringStream.skip(1000000).limit(10).iterator().next());
+			// System.out.println(stringStream.skip(start).findFirst().get());
+			System.out.println(stringStream.skip(1000000).limit(10).sorted().findFirst().get());
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -91,25 +93,30 @@ public class LineNumberReaderExample {
 	
 	public static void main(String[] args) {
 		LineNumberReaderExample lineNumberReader = new LineNumberReaderExample();
-//		String filePath = "C:/Users/Administrator/Desktop/info09_1.txt";
-		String filePath = "/Users/cptahck/Desktop/demo.txt";
+		
+		String filePath = FileConstants.getFilePath();
 		
 		/**
 		 * 测试获取文件总行数
 		 */
-		//long lineCount = lineNumberReader.countFromFile(filePath);
-		//System.out.println("总行数:" + lineCount);
+		
+		RunningTimeCountHelper.run(new Program() {
+			public void run() {
+				long lineCount = lineNumberReader.countFromFile(filePath);
+				System.out.println("总行数:" + lineCount);
+			}
+		});
 		
 		/**
 		 * 测试逐行读取文本
 		 */
-//		System.out.println("文本中的内容:");
-//		lineNumberReader.readFromFile(filePath, new FileCallBack() {
-//			@Override
-//			public void success(String str) {
-//				System.out.println(str);
-//			}
-//		});
+		// System.out.println("文本中的内容:");
+		// lineNumberReader.readFromFile(filePath, new FileCallBack() {
+		// @Override
+		// public void success(String str) {
+		// System.out.println(str);
+		// }
+		// });
 		
 		/**
 		 * 测试

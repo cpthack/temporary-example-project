@@ -38,13 +38,13 @@ import java.util.List;
 public class FileWriteExample {
 	
 	public static void main(String[] args) throws Exception {
-		File file = new File("/Users/cptahck/Desktop/demo.txt");
+		File file = new File(FileConstants.getFilePath());
 		if(!file.exists()){
 			file.createNewFile();
 		}
-		Path path = Paths.get("/Users/cptahck/Desktop", "demo.txt");
+		Path path = Paths.get(FileConstants.getFilePath());
 		List<String> list = new ArrayList<String>();
-		for(int i=1;i<100000;i++){
+		for(int i=1;i<10000;i++){
 			list.add(0, i+"");
 			Files.write(path, list, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
 			System.out.println("insert success. i ="+i);
