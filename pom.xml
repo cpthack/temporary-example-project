@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>file-example</module>
+		<module>db-example</module>
 	</modules>
 
 	<build>
