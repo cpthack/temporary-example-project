@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.cpthack.temporary.file;
+package com.github.cpthack.temporary.example.file;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +25,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.cpthack.temporary.file.RunningTimeCountHelper.Program;
+import com.github.cpthack.temporary.example.file.RunningTimeCountHelper.Program;
 
 /**
  * <b>FileWriteExample.java</b></br>

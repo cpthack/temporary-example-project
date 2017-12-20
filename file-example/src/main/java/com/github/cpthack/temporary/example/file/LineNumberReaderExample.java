@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.cpthack.temporary.file;
+package com.github.cpthack.temporary.example.file;
 
 import java.io.FileReader;
 import java.io.LineNumberReader;
 import java.util.Iterator;
 
-import com.github.cpthack.temporary.file.RunningTimeCountHelper.Program;
+import com.github.cpthack.temporary.example.file.RunningTimeCountHelper.Program;
 
 /**
  * <b>LineNumberReaderExample.java</b></br>

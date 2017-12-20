@@ -13,20 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.cpthack.temporary.file;
+package com.github.cpthack.temporary.example.file;
 
 /**
- * <b>FileCallBack.java</b></br>
+ * <b>FileConstants.java</b></br>
  * 
  * <pre>
- * 文件读取callback接口
+ * 文件操作常量类
  * </pre>
  *
  * @author cpthack 1044559878@qq.com
- * @date 2017年12月19日 下午2:56:53
+ * @date 2017年12月20日 上午11:28:35
  * @since JDK 1.8
  */
-public interface FileCallBack<T> {
+public class FileConstants {
 	
-	void success(T t);
+//	private final static String FILE_PATH = "/Users/cptahck/Desktop/demo.txt";
+	private final static String FILE_PATH = "C:/Users/Administrator/Desktop/info09_1.txt";
+//	private final static String FILE_PATH = "C:/Users/Administrator/Desktop/line.log";
+//	private final static String FILE_PATH = "C:/Users/Administrator/Desktop/line-129393969.log";
+//	private final static String FILE_PATH = "C:/Users/Administrator/Desktop/new.log";
+	
+	public static String getFilePath() {
+		return FILE_PATH;
+	}
+	
 }

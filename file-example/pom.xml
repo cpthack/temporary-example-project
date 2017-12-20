@@ -5,6 +5,6 @@
     <artifactId>temporary-example-project</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>file-operation</artifactId>
+  <artifactId>file-example</artifactId>
   <description>文件操作相关的示例</description>
 </project>
