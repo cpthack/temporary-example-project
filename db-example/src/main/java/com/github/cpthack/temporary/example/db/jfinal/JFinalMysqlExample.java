@@ -21,7 +21,7 @@ import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 
 /**
- * <b>FinalDbExample.java</b></br>
+ * <b>JFinalMysqlExample.java</b></br>
  * 
  * <pre>
  * 基于jfinal的db操作 - 示例
@@ -31,7 +31,7 @@ import com.jfinal.plugin.c3p0.C3p0Plugin;
  * @date 2017年12月20日 下午6:31:15
  * @since JDK 1.8
  */
-public class FinalDbExample {
+public class JFinalMysqlExample {
 	
 	public static void main(String[] args) {
 		/**
