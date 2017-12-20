@@ -36,9 +36,11 @@ public class LineNumberReaderExample {
 	public long countFromFile(String filePath) {
 		try (
 		        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath))) {
-			// lineNumberReader.skip(Long.MAX_VALUE);// 跳过的字符数
-			// long lineCount = lineNumberReader.getLineNumber();
-			return lineNumberReader.lines().count();
+			 lineNumberReader.skip(Long.MAX_VALUE);// 跳过的字符数
+			 long lineCount = lineNumberReader.getLineNumber();
+			return lineCount;
+			
+			//return lineNumberReader.lines().count();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -79,7 +81,8 @@ public class LineNumberReaderExample {
 //			});
 //			System.out.println(isMatch);
 			
-			System.out.println(stringStream.skip(5399580).findFirst().get());
+//			System.out.println(stringStream.skip(start).findFirst().get());
+			System.out.println(stringStream.skip(1000000).limit(10).iterator().next());
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -88,13 +91,14 @@ public class LineNumberReaderExample {
 	
 	public static void main(String[] args) {
 		LineNumberReaderExample lineNumberReader = new LineNumberReaderExample();
-		String filePath = "C:/Users/Administrator/Desktop/info09_1.txt";
+//		String filePath = "C:/Users/Administrator/Desktop/info09_1.txt";
+		String filePath = "/Users/cptahck/Desktop/demo.txt";
 		
 		/**
 		 * 测试获取文件总行数
 		 */
-		long lineCount = lineNumberReader.countFromFile(filePath);
-		System.out.println("总行数:" + lineCount);
+		//long lineCount = lineNumberReader.countFromFile(filePath);
+		//System.out.println("总行数:" + lineCount);
 		
 		/**
 		 * 测试逐行读取文本
