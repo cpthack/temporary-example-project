@@ -28,9 +28,11 @@ package com.github.cpthack.temporary.file;
  */
 public class FileConstants {
 	
-	// private final static String FILE_PATH = "/Users/cptahck/Desktop/demo.txt";
-	//private final static String FILE_PATH = "C:/Users/Administrator/Desktop/info09_1.txt";
-	private final static String FILE_PATH = "C:/Users/Administrator/Desktop/line.log";
+//	private final static String FILE_PATH = "/Users/cptahck/Desktop/demo.txt";
+	private final static String FILE_PATH = "C:/Users/Administrator/Desktop/info09_1.txt";
+//	private final static String FILE_PATH = "C:/Users/Administrator/Desktop/line.log";
+//	private final static String FILE_PATH = "C:/Users/Administrator/Desktop/line-129393969.log";
+//	private final static String FILE_PATH = "C:/Users/Administrator/Desktop/new.log";
 	
 	public static String getFilePath() {
 		return FILE_PATH;

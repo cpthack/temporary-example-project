@@ -26,7 +26,7 @@ package com.github.cpthack.temporary.file;
  * @date 2017年12月19日 下午2:56:53
  * @since JDK 1.8
  */
-public interface FileCallBack {
+public interface FileCallBack<T> {
 	
-	void success(String str);
+	void success(T t);
 }

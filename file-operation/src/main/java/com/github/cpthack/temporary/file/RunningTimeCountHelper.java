@@ -39,6 +39,8 @@ public class RunningTimeCountHelper {
 		}
 		catch (Exception e) {
 			throw new RuntimeException("程序执行失败.", e);
+		}finally{
+			System.out.println("program is end!!!");
 		}
 	}
 	

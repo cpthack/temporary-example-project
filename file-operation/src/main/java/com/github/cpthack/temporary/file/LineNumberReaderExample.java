@@ -17,7 +17,7 @@ package com.github.cpthack.temporary.file;
 
 import java.io.FileReader;
 import java.io.LineNumberReader;
-import java.util.stream.Stream;
+import java.util.Iterator;
 
 import com.github.cpthack.temporary.file.RunningTimeCountHelper.Program;
 
@@ -38,10 +38,17 @@ public class LineNumberReaderExample {
 	public long countFromFile(String filePath) {
 		try (
 		        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath))) {
+			
+			/**
+			 * 方式一：此种方式相对于方式二速度较快，但是内存占用多
+			 */
 			lineNumberReader.skip(Long.MAX_VALUE);// 跳过的字符数
 			long lineCount = lineNumberReader.getLineNumber();
 			return lineCount;
 			
+			/**
+			 * 方式二：此种方式相对于方式一速度较慢，但是内存占用少
+			 */
 			// return lineNumberReader.lines().count();
 		}
 		catch (Exception e) {
@@ -51,6 +58,7 @@ public class LineNumberReaderExample {
 	}
 	
 	// 逐行读取文本
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void readFromFile(String filePath, FileCallBack fileCallBack) {
 		try (
 		        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath))) {
@@ -58,9 +66,6 @@ public class LineNumberReaderExample {
 			String line = null;
 			while ((line = lineNumberReader.readLine()) != null) {
 				fileCallBack.success("line " + lineNumberReader.getLineNumber() + ": " + line);
-				if (lineNumberReader.getLineNumber() == 10) {
-					break;
-				}
 			}
 		}
 		catch (Exception e) {
@@ -69,22 +74,11 @@ public class LineNumberReaderExample {
 	}
 	
 	// 指定特定行读取文本
-	public void readFromFileOfLine(String filePath, int start, FileCallBack fileCallBack) {
+	public void readFromFileOfLine(String filePath, int start, int limit, FileCallBack<Iterator<String>> fileCallBack) {
 		try (
 		        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(filePath))) {
-			Stream<String> stringStream = lineNumberReader.lines();
-			// boolean isMatch = stringStream.anyMatch(new Predicate<String>() {
-			//
-			// @Override
-			// public boolean test(String t) {
-			// return t.contains("111") || t.contains("22222");
-			// }
-			//
-			// });
-			// System.out.println(isMatch);
-			
-			// System.out.println(stringStream.skip(start).findFirst().get());
-			System.out.println(stringStream.skip(1000000).limit(10).sorted().findFirst().get());
+			Iterator<String> lineIterator = lineNumberReader.lines().skip(start).limit(limit).iterator();
+			fileCallBack.success(lineIterator);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -97,9 +91,8 @@ public class LineNumberReaderExample {
 		String filePath = FileConstants.getFilePath();
 		
 		/**
-		 * 测试获取文件总行数
+		 * 获取文件总行数 -示例
 		 */
-		
 		RunningTimeCountHelper.run(new Program() {
 			public void run() {
 				long lineCount = lineNumberReader.countFromFile(filePath);
@@ -108,20 +101,39 @@ public class LineNumberReaderExample {
 		});
 		
 		/**
-		 * 测试逐行读取文本
+		 * 从头逐行读取文本-示例
 		 */
+		// RunningTimeCountHelper.run(new Program() {
+		// @Override
+		// public void run() {
 		// System.out.println("文本中的内容:");
-		// lineNumberReader.readFromFile(filePath, new FileCallBack() {
+		// lineNumberReader.readFromFile(filePath, new FileCallBack<String>() {
 		// @Override
 		// public void success(String str) {
 		// System.out.println(str);
 		// }
 		// });
+		// }
+		// });
 		
 		/**
-		 * 测试
+		 * 分段逐行读取文件-示例
 		 */
-		lineNumberReader.readFromFileOfLine(filePath, 2, null);
+		RunningTimeCountHelper.run(new Program() {
+			public void run() {
+				
+				lineNumberReader.readFromFileOfLine(filePath, 99999999, 1000, new FileCallBack<Iterator<String>>() {
+					@Override
+					public void success(Iterator<String> lineIterator) {
+						while (lineIterator.hasNext()) {
+							System.out.println("符合条件的数据:" + lineIterator.next());
+						}
+					}
+				});
+				
+			}
+		});
+		
 	}
 	
 }
