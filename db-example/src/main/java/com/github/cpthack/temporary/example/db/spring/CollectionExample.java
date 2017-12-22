@@ -15,8 +15,6 @@
  */
 package com.github.cpthack.temporary.example.db.spring;
 
-import org.bson.Document;
-
 /**
  * <b>CollectionExample.java</b></br>
  * 
@@ -28,14 +26,25 @@ import org.bson.Document;
  * @date Dec 21, 2017 5:08:49 PM
  * @since JDK 1.8
  */
-@SuppressWarnings("serial")
-public class CollectionExample extends Document{
+public class CollectionExample{
+
+	private static final long serialVersionUID = 4114001837173443816L;
+
+	private String _id;
 	
 	private String name;
 	
 	private int age;
 	
 	private String descp;
+
+	public String getId() {
+		return _id;
+	}
+
+	public void setId(String _id) {
+		this._id = _id;
+	}
 
 	public String getName() {
 		return name;

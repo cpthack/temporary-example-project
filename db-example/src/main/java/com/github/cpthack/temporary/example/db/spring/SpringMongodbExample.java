@@ -15,10 +15,6 @@
  */
 package com.github.cpthack.temporary.example.db.spring;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
@@ -44,7 +40,7 @@ import com.mongodb.MongoClientURI;
 public class SpringMongodbExample {
 	
 	public static void main(String[] args) {
-		String uri = "mongodb://online.test.com:27017/admin";
+		String uri = "mongodb://127.0.01:27017/admin";
 		String databaseName = "test";
 		
 		SpringMongodbExample springMongodbExample = new SpringMongodbExample();
@@ -55,8 +51,8 @@ public class SpringMongodbExample {
 		collection.setName("cpthack");
 		collection.setAge(18);
 		collection.setDescp("my name is cpthack.");
-		mongoTemplate.save(collection,"test");
-		System.out.println(collection.get("_id"));
+		mongoTemplate.insert(collection,"test");
+		System.out.println(collection.getId());
 		
 	}
 	
