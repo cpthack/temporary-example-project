@@ -36,7 +36,7 @@ public class ClassLocationHelper {
 	
 	public static void main(String[] args) {
 		ClassLocationHelper classLocationHelper = new ClassLocationHelper();
-		String classLocation = classLocationHelper.where(apple.applescript.AppleScriptEngine.class);
+		String classLocation = classLocationHelper.where(java.io.File.class);
 		System.out.println(classLocation);
 	}
 	
