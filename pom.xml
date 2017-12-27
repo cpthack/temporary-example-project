@@ -16,6 +16,7 @@
 		<module>db-example</module>
 		<module>develop-helper-example</module>
 		<module>automate-example</module>
+		<module>gui-example</module>
 	</modules>
 
 	<build>
