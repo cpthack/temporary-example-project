@@ -17,6 +17,7 @@
 		<module>develop-helper-example</module>
 		<module>automate-example</module>
 		<module>gui-example</module>
+		<module>company-codrim-example</module>
 	</modules>
 
 	<build>
