@@ -18,6 +18,7 @@
 		<module>automate-example</module>
 		<module>gui-example</module>
 		<module>company-codrim-example</module>
+		<module>spider-example</module>
 	</modules>
 
 	<build>
