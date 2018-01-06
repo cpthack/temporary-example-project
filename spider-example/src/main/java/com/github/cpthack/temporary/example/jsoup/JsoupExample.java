@@ -39,15 +39,22 @@ public class JsoupExample {
 		// testCompany();
 	}
 	
+	/**
+	 * 爬取某个网页下符合条件的所有链接
+	 */
 	public static void testLinks() throws Exception {
 		String url = "http://www.baijingapp.com/company";
 		Document doc = (Document) Jsoup.connect(url).get();
-		Elements links = doc.select("div[class=list]").select("a[href]");
+		// Elements links = doc.select("div[class=list]").select("[href*=/people/]");//href包含关键字
+		Elements links = doc.select("div[class=list]").select("[href~=people/[0-9]{1,}]");// href正则匹配
 		for (Element link : links) {
 			System.out.println(link.attr("href"));
 		}
 	}
 	
+	/**
+	 * 爬取公司详情的相关信息
+	 */
 	public static void testCompany() throws Exception {
 		String url = "http://www.baijingapp.com/people/35138";
 		Document doc = (Document) Jsoup.connect(url).get();
