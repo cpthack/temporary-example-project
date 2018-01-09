@@ -15,6 +15,9 @@
  */
 package com.github.cpthack.temporary.example.develop.helper.pattern;
 
+import java.util.List;
+import java.util.function.Consumer;
+
 /**
  * <b>RegularExpressionExample.java</b></br>
  * 
@@ -62,7 +65,10 @@ public class RegularExpressionExample {
 		 */
 		System.out.println("=================正则校验及提取=================");
 		RegularExpressionCheckAndExtractHelper regularExpressionCheckAndExtractHelper = new RegularExpressionCheckAndExtractHelper();
-		regularExpressionCheckAndExtractHelper.extractKeyWords("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
+		List<String> extractKeyWords = regularExpressionCheckAndExtractHelper.extractKeyWords("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
+		for (String keyword : extractKeyWords) {
+			System.out.println("提取关键字:" + keyword);
+		}
 		boolean isMatche = regularExpressionCheckAndExtractHelper.checkRegex("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
 		System.out.println("正则匹配结果:" + isMatche);
 		
@@ -70,7 +76,7 @@ public class RegularExpressionExample {
 		 * 正则表达式生成
 		 */
 		System.out.println("=================正则表达式生成=================");
-		String source = "192.168.225.255.我是中国人,/jb51@163.com/320102199002102937,CCD6E1CD-8C4B-40CB-8A62-4BBC7AFE07D6";
+		String source = "192.168.225.255.我是中国人,/jb51@163.com/320102199002102937,CCD6E1CD-8C4B-40CB-8A62-4BBC7AFE07D6,18826410784,123,aBc,123Abc,http://www.baidu.com";
 		String regex = new RegularExpressionBuilder()
 		        .IP()
 		        .append(".")
@@ -81,8 +87,25 @@ public class RegularExpressionExample {
 		        .ID()
 		        .append(",")
 		        .IDFA()
+		        .append(",")
+		        .MOBILE_PHONE()
+		        .append(",")
+		        .NUMBER().BETWEENT_COUNT(1,3)//1~3个数字
+		        .append(",")
+		        .ENGLISH().MIN_COUNT(1)//至少1个英文字母
+		        .append(",")
+		        .ENGLISH_AND_NUMBER().MIN_COUNT(1)//至少1个英文数字字符
+		        .append(",")
+		        .URL()
 		        .toString();
-		System.out.println("生成的正则" + regex);
+		
+//		regex = new RegularExpressionBuilder().LIKE("Abc%").toString();//Like语法使用示例
+		
+//		regex = new RegularExpressionBuilder().URL().toString();//匹配URL
+//		regularExpressionCheckAndExtractHelper.extractKeyWords(source, regex);
+		
+		System.out.println("字符串内容:"+source);
+		System.out.println("生成的正则:" + regex);
 		isMatche = regularExpressionCheckAndExtractHelper.checkRegex(source, regex);
 		System.out.println("正则匹配结果:" + isMatche);
 	}

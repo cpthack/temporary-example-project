@@ -85,6 +85,55 @@ public class RegularExpressionBuilder {
 	
 	/**
 	 * 
+	 * <b>MOBILE_PHONE</b> <br/>
+	 * <br/>
+	 * 
+	 * 追加移动手机号码正则规则(国内)<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder MOBILE_PHONE() {
+		this.regexBuffer.append("(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}");
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>URL</b> <br/>
+	 * <br/>
+	 * 
+	 * 追加网址URL正则规则<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder URL() {
+		this.regexBuffer.append("(https|http|ftp|rtsp|mms){1}://.+\\.").append(ENGLISH().COUNT(3));
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>ANY_CHAR</b> <br/>
+	 * <br/>
+	 * 
+	 * 追加任意字符正则规则<br/>
+	 * 匹配除换行符以外的任意字符
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder ANY_CHAR() {
+		this.regexBuffer.append(".");
+		return this;
+	}
+	
+	/**
+	 * 
 	 * <b>ID</b> <br/>
 	 * <br/>
 	 * 
@@ -128,6 +177,137 @@ public class RegularExpressionBuilder {
 	 */
 	public RegularExpressionBuilder CHINESE() {
 		this.regexBuffer.append("[\u4e00-\u9fa5]+");
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>ENGLISH</b> <br/>
+	 * <br/>
+	 * 
+	 * 追加英文正则规则<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder ENGLISH() {
+		this.regexBuffer.append("[A-Za-z]");
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>ENGLISH_AND_NUMBER</b> <br/>
+	 * <br/>
+	 * 
+	 * 追加英文数字正则规则<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder ENGLISH_AND_NUMBER() {
+		this.regexBuffer.append("[A-Za-z0-9]");
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>NUMBER</b> <br/>
+	 * <br/>
+	 * 
+	 * 追加数字的正则规则<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder NUMBER() {
+		this.regexBuffer.append("\\d");
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>MIN_COUNT</b> <br/>
+	 * <br/>
+	 * 
+	 * 邻近的正则规则至少循环的次数<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @param num
+	 *            规则循环的次数
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder MIN_COUNT(int num) {
+		this.regexBuffer.append("{").append(num).append(",}");
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>COUNT</b> <br/>
+	 * <br/>
+	 * 
+	 * 邻近的正则规则刚好循环的次数<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @param num
+	 *            规则循环的次数
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder COUNT(int num) {
+		this.regexBuffer.append("{").append(num).append("}");
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>BETWEENT_COUNT</b> <br/>
+	 * <br/>
+	 * 
+	 * 邻近的正则规则循环在minNum到maxNum之间的次数<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @param minNum
+	 *            规则循环的最小次数
+	 * @param maxNum
+	 *            规则循环的最大次数
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder BETWEENT_COUNT(int minNum, int maxNum) {
+		this.regexBuffer.append("{").append(minNum).append(",").append(maxNum).append("}");
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>LIKE</b> <br/>
+	 * <br/>
+	 * 
+	 * 仿照sql中like语法追加规则<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @param keyword
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder LIKE(String keyword) {
+		if (keyword.startsWith("%")) {
+			keyword = keyword.replace("%", "");
+			this.regexBuffer.append("^").append(keyword).append(".+");
+			return this;
+		}
+		if (keyword.endsWith("%")) {
+			keyword = keyword.replace("%", "");
+			this.regexBuffer.append(".+").append(keyword).append("$");
+			return this;
+		}
+		this.regexBuffer.append("(.+").append(keyword).append(".+)");
 		return this;
 	}
 	
