@@ -15,23 +15,19 @@
  */
 package com.github.cpthack.temporary.example.develop.helper.pattern;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * <b>RegularExpressionExample.java</b></br>
  * 
  * <pre>
- * 正则表达式示例
+ * 正则表达式操作示例
  * </pre>
  *
  * @author cpthack 1044559878@qq.com
- * @date Jan 9, 2018 11:16:50 AM
+ * @date 2018年1月9日 下午6:11:01
  * @since JDK 1.8
  */
 public class RegularExpressionExample {
+	
 	// 参考：http://tools.jb51.net/regex/create_reg
 	// 一、常用元字符
 	// 代码 说明
@@ -60,59 +56,11 @@ public class RegularExpressionExample {
 	// \B 匹配不是单词开头或结束的位置
 	// [^x] 匹配除了x以外的任意字符
 	// [^aeiou] 匹配除了aeiou这几个字母以外的任意字符
-	
-	public static void main(String[] arg) {
-		RegularExpressionExample regularExpressionExample = new RegularExpressionExample();
-		regularExpressionExample.extractKeyWords("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
-		boolean isMatche = regularExpressionExample.checkRegex("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
+	public static void main(String[] args) {
+		RegularExpressionCheckAndExtractHelper regularExpressionCheckAndExtractHelper = new RegularExpressionCheckAndExtractHelper();
+		regularExpressionCheckAndExtractHelper.extractKeyWords("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
+		boolean isMatche = regularExpressionCheckAndExtractHelper.checkRegex("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
 		System.out.println("正则匹配结果:" + isMatche);
-	}
-	
-	/**
-	 * 
-	 * <b>extractKeyWords</b> <br/>
-	 * <br/>
-	 * 
-	 * 正则提取关键字<br/>
-	 * 
-	 * @author cpthack 1044559878@qq.com
-	 * @param source
-	 *            原始内容
-	 * @param regex
-	 *            正则表达式
-	 * @return List<String>
-	 *
-	 */
-	public List<String> extractKeyWords(String source, String regex) {
-		List<String> keyWordList = new ArrayList<String>();
-		Pattern pat = Pattern.compile(regex.toLowerCase());// 正则判断
-		Matcher mc = pat.matcher(source.toLowerCase());// 条件匹配
-		String keyWord = null;
-		while (mc.find()) {
-			keyWord = mc.group();// 提取关键字
-			keyWordList.add(keyWord);
-			System.out.println(keyWord);
-		}
-		return keyWordList;
-	}
-	
-	/**
-	 * 
-	 * <b>checkRegex</b> <br/>
-	 * <br/>
-	 * 
-	 * 检查字符串是否匹配当前的正则表达式<br/>
-	 * 
-	 * @author cpthack 1044559878@qq.com
-	 * @param source
-	 *            当前待匹配的字符串
-	 * @param regex
-	 *            当前待匹配的正则表达式
-	 * @return boolean
-	 *
-	 */
-	public boolean checkRegex(String source, String regex) {
-		return Pattern.matches(regex, source);
 	}
 	
 }
