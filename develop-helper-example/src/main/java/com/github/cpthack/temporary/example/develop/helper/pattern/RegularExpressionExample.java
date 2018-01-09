@@ -64,6 +64,8 @@ public class RegularExpressionExample {
 	public static void main(String[] arg) {
 		RegularExpressionExample regularExpressionExample = new RegularExpressionExample();
 		regularExpressionExample.extractKeyWords("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
+		boolean isMatche = regularExpressionExample.checkRegex("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
+		System.out.println("正则匹配结果:" + isMatche);
 	}
 	
 	/**
@@ -76,14 +78,14 @@ public class RegularExpressionExample {
 	 * @author cpthack 1044559878@qq.com
 	 * @param source
 	 *            原始内容
-	 * @param pattern
+	 * @param regex
 	 *            正则表达式
 	 * @return List<String>
 	 *
 	 */
-	public List<String> extractKeyWords(String source, String pattern) {
+	public List<String> extractKeyWords(String source, String regex) {
 		List<String> keyWordList = new ArrayList<String>();
-		Pattern pat = Pattern.compile(pattern.toLowerCase());// 正则判断
+		Pattern pat = Pattern.compile(regex.toLowerCase());// 正则判断
 		Matcher mc = pat.matcher(source.toLowerCase());// 条件匹配
 		String keyWord = null;
 		while (mc.find()) {
@@ -92,6 +94,25 @@ public class RegularExpressionExample {
 			System.out.println(keyWord);
 		}
 		return keyWordList;
+	}
+	
+	/**
+	 * 
+	 * <b>checkRegex</b> <br/>
+	 * <br/>
+	 * 
+	 * 检查字符串是否匹配当前的正则表达式<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @param source
+	 *            当前待匹配的字符串
+	 * @param regex
+	 *            当前待匹配的正则表达式
+	 * @return boolean
+	 *
+	 */
+	public boolean checkRegex(String source, String regex) {
+		return Pattern.matches(regex, source);
 	}
 	
 }
