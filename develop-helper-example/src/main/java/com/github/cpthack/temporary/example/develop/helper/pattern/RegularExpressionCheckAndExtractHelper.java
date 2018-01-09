@@ -56,7 +56,6 @@ public class RegularExpressionCheckAndExtractHelper {
 		while (mc.find()) {
 			keyWord = mc.group();// 提取关键字
 			keyWordList.add(keyWord);
-			System.out.println(keyWord);
 		}
 		return keyWordList;
 	}
