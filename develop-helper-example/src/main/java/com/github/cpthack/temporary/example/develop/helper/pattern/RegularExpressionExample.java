@@ -57,10 +57,33 @@ public class RegularExpressionExample {
 	// [^x] 匹配除了x以外的任意字符
 	// [^aeiou] 匹配除了aeiou这几个字母以外的任意字符
 	public static void main(String[] args) {
+		/**
+		 * 正则校验及提取
+		 */
+		System.out.println("=================正则校验及提取=================");
 		RegularExpressionCheckAndExtractHelper regularExpressionCheckAndExtractHelper = new RegularExpressionCheckAndExtractHelper();
 		regularExpressionCheckAndExtractHelper.extractKeyWords("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
 		boolean isMatche = regularExpressionCheckAndExtractHelper.checkRegex("dubbo-2.5.3.jar", "dubbo-.+\\.jar");
 		System.out.println("正则匹配结果:" + isMatche);
+		
+		/**
+		 * 正则表达式生成
+		 */
+		System.out.println("=================正则表达式生成=================");
+		String source = "192.168.225.255.我是中国人,/jb51@163.com/320102199002102937,CCD6E1CD-8C4B-40CB-8A62-4BBC7AFE07D6";
+		String regex = new RegularExpressionBuilder()
+		        .IP()
+		        .append(".")
+		        .CHINESE()
+		        .append(",/")
+		        .EMAIL()
+		        .append("/")
+		        .ID()
+		        .append(",")
+		        .IDFA()
+		        .toString();
+		System.out.println("生成的正则" + regex);
+		isMatche = regularExpressionCheckAndExtractHelper.checkRegex(source, regex);
+		System.out.println("正则匹配结果:" + isMatche);
 	}
-	
 }
