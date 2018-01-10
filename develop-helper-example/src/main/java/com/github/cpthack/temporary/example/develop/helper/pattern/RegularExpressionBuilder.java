@@ -111,7 +111,8 @@ public class RegularExpressionBuilder {
 	 *
 	 */
 	public RegularExpressionBuilder URL() {
-		this.regexBuffer.append("(https|http|ftp|rtsp|mms){1}://.+\\.").append(ENGLISH().COUNT(3));
+		this.regexBuffer.append("(https|http|ftp|rtsp|mms){1}://.+\\.");// 表示:http://xxx.、https://xxx.等等...
+		ENGLISH().COUNT(3);// 表示:*.com、*.net等等...
 		return this;
 	}
 	
@@ -311,8 +312,19 @@ public class RegularExpressionBuilder {
 		return this;
 	}
 	
-	@Override
-	public String toString() {
-		return regexBuffer.toString();
+	/**
+	 * 
+	 * <b>create</b> <br/>
+	 * <br/>
+	 * 
+	 * 返回最终组合的正则规则表达式<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return String
+	 *
+	 */
+	public String create() {
+		return this.regexBuffer.toString();
 	}
+	
 }

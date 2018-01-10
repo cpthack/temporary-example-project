@@ -89,21 +89,21 @@ public class RegularExpressionExample {
 		        .append(",")
 		        .MOBILE_PHONE()
 		        .append(",")
-		        .NUMBER().BETWEENT_COUNT(1,3)//1~3个数字
+		        .NUMBER().BETWEENT_COUNT(1, 3)// 1~3个数字
 		        .append(",")
-		        .ENGLISH().MIN_COUNT(1)//至少1个英文字母
+		        .ENGLISH().MIN_COUNT(1)// 至少1个英文字母
 		        .append(",")
-		        .ENGLISH_AND_NUMBER().MIN_COUNT(1)//至少1个英文数字字符
+		        .ENGLISH_AND_NUMBER().MIN_COUNT(1)// 至少1个英文数字字符
 		        .append(",")
 		        .URL()
-		        .toString();
+		        .create();
 		
-//		regex = new RegularExpressionBuilder().LIKE("Abc%").toString();//Like语法使用示例
+		// regex = new RegularExpressionBuilder().LIKE("Abc%").toString();//Like语法使用示例
 		
-//		regex = new RegularExpressionBuilder().URL().toString();//匹配URL
-//		regularExpressionCheckAndExtractHelper.extractKeyWords(source, regex);
+		// regex = new RegularExpressionBuilder().URL().toString();//匹配URL
+		// regularExpressionCheckAndExtractHelper.extractKeyWords(source, regex);
 		
-		System.out.println("字符串内容:"+source);
+		System.out.println("字符串内容:" + source);
 		System.out.println("生成的正则:" + regex);
 		isMatche = regularExpressionCheckAndExtractHelper.checkRegex(source, regex);
 		System.out.println("正则匹配结果:" + isMatche);
