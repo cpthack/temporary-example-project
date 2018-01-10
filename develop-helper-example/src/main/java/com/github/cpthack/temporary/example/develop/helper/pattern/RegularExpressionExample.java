@@ -75,7 +75,7 @@ public class RegularExpressionExample {
 		 * 正则表达式生成
 		 */
 		System.out.println("=================正则表达式生成=================");
-		String source = "192.168.225.255.我是中国人,/jb51@163.com/320102199002102937,CCD6E1CD-8C4B-40CB-8A62-4BBC7AFE07D6,18826410784,123,aBc,123Abc,http://www.baidu.com";
+		String source = "192.168.225.255.我是中国人,/jb51@163.com/320102199002102937,CCD6E1CD-8C4B-40CB-8A62-4BBC7AFE07D6,18826410784,123,aBc,123Abc,http://www.baidu.com?name=cpthack#";
 		String regex = new RegularExpressionBuilder()
 		        .IP()
 		        .append(".")
