@@ -75,7 +75,7 @@ public class RegularExpressionExample {
 		 * 正则表达式生成
 		 */
 		System.out.println("=================正则表达式生成=================");
-		String source = "192.168.225.255.我是中国人,/jb51@163.com/320102199002102937,CCD6E1CD-8C4B-40CB-8A62-4BBC7AFE07D6,18826410784,123,aBc,123Abc,http://www.baidu.com?name=cpthack#,1055669847";
+		String source = "192.168.225.255.我是中国人,/jb51@163.com/320102199002102937,CCD6E1CD-8C4B-40CB-8A62-4BBC7AFE07D6,18826410784,123,aBc,123Abc,http://www.baidu.com?name=cpthack#,1055669847,515071,48-5D-60-61-3D-C5";
 		String regex = new RegularExpressionBuilder()
 		        .IP()
 		        .append(".")
@@ -98,6 +98,10 @@ public class RegularExpressionExample {
 		        .URL()
 		        .append(",")
 		        .QQ()
+		        .append(",")
+		        .POSTAL_CODE()
+		        .append(",")
+		        .MAC()
 		        .create();
 		
 		// regex = new RegularExpressionBuilder().LIKE("Abc%").toString();//Like语法使用示例

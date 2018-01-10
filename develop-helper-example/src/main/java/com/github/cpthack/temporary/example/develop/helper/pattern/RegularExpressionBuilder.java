@@ -69,6 +69,22 @@ public class RegularExpressionBuilder {
 	
 	/**
 	 * 
+	 * <b>POSTAL_CODE</b> <br/>
+	 * <br/>
+	 * 
+	 * 追加邮政编码正则规则<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder POSTAL_CODE() {
+		this.regexBuffer.append("[1-9][0-9]{5}");
+		return this;
+	}
+	
+	/**
+	 * 
 	 * <b>IP</b> <br/>
 	 * <br/>
 	 * 
@@ -80,6 +96,22 @@ public class RegularExpressionBuilder {
 	 */
 	public RegularExpressionBuilder IP() {
 		this.regexBuffer.append("(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)\\.(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)\\.(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)\\.(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)");
+		return this;
+	}
+	
+	/**
+	 * 
+	 * <b>MAC</b> <br/>
+	 * <br/>
+	 * 
+	 * 追加MAC地址正则规则<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder MAC() {
+		this.regexBuffer.append("([A-Fa-f0-9]{2}-){5}[A-Fa-f0-9]{2}");
 		return this;
 	}
 	
