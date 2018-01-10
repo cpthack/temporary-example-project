@@ -134,16 +134,16 @@ public class RegularExpressionBuilder {
 	
 	/**
 	 * 
-	 * <b>ID</b> <br/>
+	 * <b>ID_CARD_18</b> <br/>
 	 * <br/>
 	 * 
-	 * 追加身份证规则<br/>
+	 * 追加18位身份证正则规则<br/>
 	 * 
 	 * @author cpthack 1044559878@qq.com
 	 * @return RegularExpressionBuilder
 	 *
 	 */
-	public RegularExpressionBuilder ID() {
+	public RegularExpressionBuilder ID_CARD_18() {
 		this.regexBuffer.append("(\\d{17}[\\d|x]|\\d{15})");
 		return this;
 	}
@@ -153,7 +153,7 @@ public class RegularExpressionBuilder {
 	 * <b>IDFA</b> <br/>
 	 * <br/>
 	 * 
-	 * 追加IDFA规则<br/>
+	 * 追加IDFA正则规则<br/>
 	 * 
 	 * @author cpthack 1044559878@qq.com
 	 * @return RegularExpressionBuilder

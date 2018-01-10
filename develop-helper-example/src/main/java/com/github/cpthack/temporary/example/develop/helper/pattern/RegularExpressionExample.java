@@ -16,7 +16,6 @@
 package com.github.cpthack.temporary.example.develop.helper.pattern;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * <b>RegularExpressionExample.java</b></br>
@@ -84,7 +83,7 @@ public class RegularExpressionExample {
 		        .append(",/")
 		        .EMAIL()
 		        .append("/")
-		        .ID()
+		        .ID_CARD_18()
 		        .append(",")
 		        .IDFA()
 		        .append(",")
