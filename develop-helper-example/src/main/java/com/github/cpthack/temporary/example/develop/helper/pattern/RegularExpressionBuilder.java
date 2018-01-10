@@ -53,6 +53,22 @@ public class RegularExpressionBuilder {
 	
 	/**
 	 * 
+	 * <b>QQ</b> <br/>
+	 * <br/>
+	 * 
+	 * 追加QQ正则规则<br/>
+	 * 
+	 * @author cpthack 1044559878@qq.com
+	 * @return RegularExpressionBuilder
+	 *
+	 */
+	public RegularExpressionBuilder QQ() {
+		this.regexBuffer.append("[1-9]\\d{4,}");
+		return this;
+	}
+	
+	/**
+	 * 
 	 * <b>IP</b> <br/>
 	 * <br/>
 	 * 
