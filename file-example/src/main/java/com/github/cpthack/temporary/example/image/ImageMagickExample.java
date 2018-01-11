@@ -31,6 +31,8 @@ import org.im4java.core.IMOperation;
  */
 public class ImageMagickExample {
 	
+	// 参考1:http://www.charry.org/docs/linux/ImageMagick/ImageMagick.html
+	// 参考2:https://www.cnblogs.com/chanshuyi/p/6813540.html
 	public static void main(String[] arg) throws Exception {
 		IMOperation operation = new IMOperation();
 		operation.addImage("C:\\Users\\Administrator\\Desktop\\1.1.png");
@@ -38,7 +40,7 @@ public class ImageMagickExample {
 		operation.monochrome();// 二值化
 		
 		ConvertCmd cmd = new ConvertCmd();
-		//cmd.setSearchPath("C:\\Program Files\\ImageMagick-7.0.5-Q16");  // Windows需要设置，Linux不需要
+		// cmd.setSearchPath("C:\\Program Files\\ImageMagick-7.0.5-Q16"); // Windows需要设置，Linux不需要
 		cmd.run(operation);
 	}
 }
