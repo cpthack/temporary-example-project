@@ -18,8 +18,24 @@
 			<version>1.1.0</version>
 		</dependency>
 		<!-- xxl-excel相关依赖 end -->
-		
-		
+
+		<!-- ImageMagick图像处理相关依赖 start -->
+		<dependency>
+			<groupId>org.im4java</groupId>
+			<artifactId>im4java</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<!-- ImageMagick相关依赖 end -->
+
+		<!-- thumbnailator图像处理相关依赖 start -->
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.8</version>
+		</dependency>
+		<!-- thumbnailator图像处理相关依赖 end -->
+
+
 	</dependencies>
 
 </project>
