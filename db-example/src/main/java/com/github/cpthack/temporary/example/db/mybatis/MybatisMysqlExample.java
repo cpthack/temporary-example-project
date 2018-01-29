@@ -69,6 +69,7 @@ public class MybatisMysqlExample {
 		return dataSource;
 	}
 	
+	// 参考文档:http://www.mybatis.org/mybatis-3/zh/getting-started.html
 	public static void main(String[] args) {
 		MybatisMysqlExample mybatisMysqlExample = new MybatisMysqlExample();
 		
