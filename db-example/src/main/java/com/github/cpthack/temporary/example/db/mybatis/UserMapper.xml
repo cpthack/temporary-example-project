@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.cpthack.temporary.example.db.mybatis.UserMapper">
+	<resultMap id="BaseResultMap"
+		type="com.github.cpthack.temporary.example.db.mybatis.User">
+		<!-- WARNING - @mbg.generated -->
+		<constructor>
+			<idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+			<arg column="username" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="password" javaType="java.lang.String" jdbcType="CHAR" />
+		</constructor>
+	</resultMap>
+
+	<select id="selectList" resultMap="BaseResultMap">
+		select * from user
+	</select>
+
+</mapper>

@@ -11,6 +11,7 @@
 
 	<dependencies>
 
+		<!-- JFinal ORM相关依赖 start -->
 		<dependency>
 			<groupId>com.jfinal</groupId>
 			<artifactId>jfinal</artifactId>
@@ -22,20 +23,29 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.5.2</version>
 		</dependency>
+		<!-- JFinal ORM相关依赖 end -->
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.44</version>
 		</dependency>
-		
-		
+
+		<!-- spring-data-mongodb操作相关依赖 start -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
 			<version>2.0.2.RELEASE</version>
 		</dependency>
+		<!-- spring-data-mongodb操作相关依赖 end -->
 
+		<!-- mybatis相关依赖 start -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.2</version>
+		</dependency>
+		<!-- mybatis相关依赖 end -->
 
 	</dependencies>
 </project>
