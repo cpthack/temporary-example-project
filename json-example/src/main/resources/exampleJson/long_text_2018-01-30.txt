@@ -1,0 +1,277 @@
+    [
+        {
+            "_nodeName": "name",
+            "_value": "612 - Mobile Content - PL - 3G + Wifi - iLoveMobi New Download"
+        },
+        {
+            "_nodeName": "description",
+            "_value": "\n\nTraffic not allowed: In Poland is  Not allowed / prohibited: \n- Antivirus or pre-lander with Antivirus \n- Sweepstakes creatives or pre-lander with sweepstakes. \n- Aggressive Pop ads &amp; user unable to close the Ads/pages. \n- A fake article (pre-lander) &amp; mislead users by clicking on AKTYWUJ (active) to subscribe. \n\n"
+        },
+        {
+            "_nodeName": "status",
+            "_value": "active"
+        },
+        {
+            "_nodeName": "category",
+            "_attributes": {
+                "id": "37"
+            },
+            "_value": "Mobile Content (CPA)"
+        },
+        {
+            "_nodeName": "payouts",
+            "items": [
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "country": "PL",
+                        "operator": "WIFI",
+                        "currency": "USD"
+                    },
+                    "_value": "1.89"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "country": "PL",
+                        "operator": "Play",
+                        "currency": "USD"
+                    },
+                    "_value": "1.89"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "country": "PL",
+                        "operator": "T-Mobile",
+                        "currency": "USD"
+                    },
+                    "_value": "1.89"
+                }
+            ]
+        },
+        {
+            "_nodeName": "restrictions",
+            "items": [
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 1,
+                        "allowed": "true"
+                    },
+                    "_value": "Mobile Application"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 2,
+                        "allowed": "true"
+                    },
+                    "_value": "Mobile Web"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 3,
+                        "allowed": "false"
+                    },
+                    "_value": "Push notification"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 4,
+                        "allowed": "false"
+                    },
+                    "_value": "Incentivized"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 5,
+                        "allowed": "true"
+                    },
+                    "_value": "Emailing"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 6,
+                        "allowed": "true"
+                    },
+                    "_value": "Search"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 7,
+                        "allowed": "false"
+                    },
+                    "_value": "Social Media"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 8,
+                        "allowed": "false"
+                    },
+                    "_value": "SMS"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 9,
+                        "allowed": "true"
+                    },
+                    "_value": "Media Buyer"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 10,
+                        "allowed": "true"
+                    },
+                    "_value": "Ads Icon"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 11,
+                        "allowed": "true"
+                    },
+                    "_value": "Discovery App"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 12,
+                        "allowed": "false"
+                    },
+                    "_value": "Network Syndication"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 13,
+                        "allowed": "false"
+                    },
+                    "_value": "Adult"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 14,
+                        "allowed": "true"
+                    },
+                    "_value": "Pop-up or Pop-under"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 15,
+                        "allowed": "true"
+                    },
+                    "_value": "Icon Dropping"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 16,
+                        "allowed": "true"
+                    },
+                    "_value": "Toolbar traffic"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 17,
+                        "allowed": "true"
+                    },
+                    "_value": "Approval of creatives is required"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 18,
+                        "allowed": "false"
+                    },
+                    "_value": "Virtual Currency / Super Rewards"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 19,
+                        "allowed": "false"
+                    },
+                    "_value": "Automatic redirecting of users without any user interaction (e.g. click)"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 20,
+                        "allowed": "true"
+                    },
+                    "_value": "Native Advertising / Native Ads"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 21,
+                        "allowed": "true"
+                    },
+                    "_value": "Pre-Installation Ads"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 22,
+                        "allowed": "false"
+                    },
+                    "_value": "Co-Regs"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 23,
+                        "allowed": "true"
+                    },
+                    "_value": "WiFi"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 25,
+                        "allowed": "false"
+                    },
+                    "_value": "Chat / IM"
+                },
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "id": 26,
+                        "allowed": "false"
+                    },
+                    "_value": "iFrame"
+                }
+            ]
+        },
+        {
+            "_nodeName": "url",
+            "_value": "http://www.rotationurls.com/offer/137917%7C612"
+        },
+        {
+            "_nodeName": "billing",
+            "items": [
+                {
+                    "_nodeName": "item",
+                    "_attributes": {
+                        "country": "PL",
+                        "operator": "All",
+                        "option_3g": "Direct Billing, Double Optin",
+                        "option_wifi": "SMS Billing, Pin Optin",
+                        "option_3g_wifi": "None"
+                    }
+                }
+            ]
+        }
+    ]
