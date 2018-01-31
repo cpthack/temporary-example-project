@@ -19,6 +19,7 @@
 		<module>gui-example</module>
 		<module>company-codrim-example</module>
 		<module>spider-example</module>
+		<module>json-example</module>
 	</modules>
 
 	<build>
