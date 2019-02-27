@@ -15,16 +15,9 @@
  */
 package com.github.cpthack.temporary.example.db.spring;
 
-import org.springframework.data.mongodb.MongoDbFactory;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
-import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver;
-import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
-import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
-import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
+import java.util.List;
 
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
+import org.springframework.util.CollectionUtils;
 
 /**
  * <b>SpringMongodbExample.java</b></br>
@@ -40,33 +33,31 @@ import com.mongodb.MongoClientURI;
 public class SpringMongodbExample {
 	
 	public static void main(String[] args) {
-		String uri = "mongodb://127.0.01:27017/admin";
-		String databaseName = "test";
 		
-		SpringMongodbExample springMongodbExample = new SpringMongodbExample();
-		MongoDbFactory mongoDbFactory = springMongodbExample.dmpMongoDbFactory(uri,databaseName);
-		MongoTemplate mongoTemplate = springMongodbExample.createMongoTemplate(mongoDbFactory);
+		SpringMongodbPlugin springMongodbPlugin = new SpringMongodbPlugin();
+		springMongodbPlugin.setUri("mongodb://127.0.0.1:27017/admin");
+		springMongodbPlugin.setUri("test");
+		springMongodbPlugin.start();
 		
-		CollectionExample  collection  = new CollectionExample();
-		collection.setName("cpthack");
-		collection.setAge(18);
-		collection.setDescp("my name is cpthack.");
-		mongoTemplate.insert(collection,"test");
-		System.out.println(collection.getId());
+		String collectionName = "test";
+		CollectionExample saveCollection = new CollectionExample();
+		saveCollection.setName("cpthack");
+		saveCollection.setAge(18);
+		saveCollection.setDescp("my name is cpthack.");
+		SpringMongodbHelper.getInstance().insert(saveCollection, collectionName);// 插入数据
+		System.out.println("插入数据成功，插入的_id=" + saveCollection.getId());
 		
-	}
-	
-	public MongoDbFactory dmpMongoDbFactory(String uri,String databaseName){
-		MongoClient mongoClient = new MongoClient(new MongoClientURI(uri));
-		return new SimpleMongoDbFactory(mongoClient, databaseName);
-	}
-	
-	public MongoTemplate createMongoTemplate(MongoDbFactory mongoDbFactory){
-		DefaultDbRefResolver dbRefResolver = new DefaultDbRefResolver(mongoDbFactory);
-		MappingMongoConverter converter = new MappingMongoConverter(dbRefResolver, new MongoMappingContext());
-		converter.setTypeMapper(new DefaultMongoTypeMapper(null));
-		MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory, converter);
-		return mongoTemplate;
+		// 查询某个对象
+		List<CollectionExample> selectCollectionList = SpringMongodbHelper.getInstance().findByField("_id", saveCollection.getId(), CollectionExample.class);
+		if (!CollectionUtils.isEmpty(selectCollectionList)) {
+			System.out.println("查询数据成功，查询到的第一个_id=" + selectCollectionList.get(0).getId());
+		}
+		
+		// 删除某个对象
+		long delectCount = SpringMongodbHelper.getInstance().remove(saveCollection, collectionName);
+		System.out.println("成功删除" + delectCount + "个数据.");
+		
+		// 具体优化扩展参考网络博客：https://blog.csdn.net/mazhen1991/article/details/78161784
 	}
 	
 }
